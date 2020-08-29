@@ -1,0 +1,24 @@
+<h1>Tweets</h1>
+<ul>
+  <li><%=link_to("Twitter Accounts", usernames_path)%></li>
+</ul>
+<div class="tweets-container">
+    <table class="table table-condensed table-striped table-hover">
+        <thead>
+            <th>Username and Date and Time</th>
+            <th>Tweet</th>
+        </thead>
+        <% @tweets.each do |tweet|%>
+            <tr>
+                <td> 
+                    <%=tweet.twitter_username%><br/><%=tweet.date%> <%=tweet.time%> <%=tweet.timezone%>
+                </td>
+                <td class="tweet-text">
+                    <%=tweet.tweet.strip.gsub(URI.regexp(['http', 'https']), '<a href="\0" target="_blank">\0</a>')
+                    .gsub(/pic.twitter.com\/[^\s]+/, '<a href="https://\\0" target="_blank">\0</a>').html_safe%>
+                </td>
+            </tr>
+        <% end %>
+    </table>
+    <%= will_paginate @tweets, renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+</div>

@@ -1,0 +1,21 @@
+<h1>Usernames</h1>
+<ul>
+  <li><%=link_to("All Tweets", tweets_path)%></li>
+  <li><%= link_to "Add Username", action: "new" %></li>
+</ul>
+<div class="usernames-container">
+    <table class="table table-condensed table-striped table-hover">
+        <thead>
+            <th>Username</th>
+            <th>Tweets</th>
+            <th>Edit Username</th>
+        </thead>
+        <% @usernames.each do |username|%>
+            <tr>
+                <td><%=username.handle%> <br/> <%=username.category%> <br/> <%=username.last_checked_at%></td>
+                <td><%=link_to("Tweets for #{username.handle}", tweets_path(:username_id => username.id))%></td>
+                <td><%= link_to "Edit", edit_username_path(username) %></td>
+            </tr>
+        <% end %>
+    </table>
+</div>

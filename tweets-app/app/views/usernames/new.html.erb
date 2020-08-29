@@ -1,0 +1,14 @@
+<%= simple_form_for @username, :url => '/usernames' do |f| %>
+    <div class="simple_form_input"><%= f.input :handle, :placeholder => '@twitterhandle' %></div>
+    <div>
+        <%= f.label "Category" %>
+        <%= f.collection_radio_buttons :category, @types, :category, :category %>
+    </div>
+    <div><%= f.button :submit, class: "submit_button" %></div>
+    <% if @username.errors.any? %>
+        <% @username.errors.full_messages.each do |msg| %>
+            <p class="error_message"><%= msg %></p>
+        <% end %>
+    <% end %>
+<% end %>
+<div class="back_btn"><%= link_to 'Go Back', usernames_path %></div>

@@ -1,0 +1,24 @@
+// Place all the styles related to the usernames controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.submit_button {
+    background-color: lightblue;
+    margin-top: 5px;
+}
+
+.simple_form_input{
+    width: 300px;
+    text-transform: lowercase;
+}
+
+.error_message{
+    color: red;
+    font-size: 15px;
+    margin-left: 15px;
+    margin-top: 5px;
+}
+
+.back_btn{
+    margin-top: 10px;
+    margin-left: 20px;
+}
