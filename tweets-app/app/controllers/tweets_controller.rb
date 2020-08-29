@@ -13,7 +13,7 @@ class TweetsController < ApplicationController
     end
 
     def show
-        @tweet = Tweet.find(params[:id])
+        @tweet = Tweet.find_by(params[:id])
         render plain: @tweet.inspect
     end
 
